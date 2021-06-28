@@ -10,7 +10,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import Message from "./Message";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import firebase from "firebase";
 import TimeAgo from "timeago-react";
 
@@ -86,6 +86,10 @@ function ChatScreen({ chat, messages }) {
     setInput("");
     scrollToBottom();
   }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, []);
 
   const receipentObj = recepientSnapShot?.docs?.[0]?.data();
 
