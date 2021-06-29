@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Avatar, IconButton, Button } from "@material-ui/core";
-import ChatIcon from "@material-ui/icons/Chat";
 import SearchIcon from "@material-ui/icons/Search";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import * as EmailValidator from "email-validator";
 import { auth, db } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -41,15 +39,10 @@ export default function Sidebar() {
   return (
     <Container>
       <Header>
-        <UserAvatar src={user.photoURL} onClick={() => auth.signOut()} />
-        <IconsContainer>
-          <IconButton>
-            <ChatIcon />
-          </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
-        </IconsContainer>
+        <UserAvatar src={user.photoURL} />
+        <IconButton>
+          <LogoutButton onClick={() => auth.signOut()}>Logout</LogoutButton>
+        </IconButton>
       </Header>
 
       <SearchContainer>
@@ -75,6 +68,7 @@ const Container = styled.div`
   min-width: 300px;
   max-width: 350px;
   overflow-y: scroll;
+  background-color: #006aff;
 
   ::-webkit-scrollbar {
     display: none;
@@ -90,26 +84,31 @@ const Header = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: white;
-  padding: 15px;
-  height: 80px;
-  border-bottom: 1px solid whitesmoke;
+  padding: 5.5px 10px;
 `;
 
 const UserAvatar = styled(Avatar)`
-  cursor: pointer;
   :hover {
     opacity: 0.8;
   }
 `;
 
-const IconsContainer = styled.div``;
+const LogoutButton = styled.button`
+  background-color: #ff449f;
+  border-radius: 10px;
+  padding: 7px 20px;
+  :hover {
+    background-color: #fff5b7;
+    cursor: pointer;
+  }
+`;
 
 const SearchContainer = styled.div`
+  background-color: white;
   display: flex;
   align-items: center;
   padding: 20px;
-  border-radius: 2px;
+  border-right: 1px solid black;
 `;
 
 const SearchInput = styled.input`
@@ -121,8 +120,13 @@ const SearchInput = styled.input`
 
 const SidebarButton = styled(Button)`
   width: 100%;
+
   &&& {
+    background-color: #ff449f;
     border-top: 1px solid whitesmoke;
     border-bottom: 1px solid whitesmoke;
+    :hover {
+      background-color: #fff5b7;
+    }
   }
 `;

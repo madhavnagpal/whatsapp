@@ -36,10 +36,12 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 15px;
+  padding: 5px;
   word-break: break-word;
+  background-color: #ff449f;
+
   :hover {
-    background-color: #e9e3eb;
+    background-color: #fff5b7;
   }
 `;
 
