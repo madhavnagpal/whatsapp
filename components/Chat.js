@@ -39,7 +39,7 @@ const Container = styled.div`
   padding: 5px;
   word-break: break-word;
   :hover {
-    background-color: #fff5b7;
+    background-color: whitesmoke;
   }
 `;
 

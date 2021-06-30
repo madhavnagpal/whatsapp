@@ -6,6 +6,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+:root {
+  --main-bg-color: #006aff;
+  --secondary-bg-color: #1b1f3b;
+}
+
 a {
   color: inherit;
   text-decoration: none;

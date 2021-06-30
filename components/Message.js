@@ -24,24 +24,26 @@ const Container = styled.div``;
 
 const MessageElement = styled.div`
   width: fit-content;
-  padding: 2px 20px;
-  padding-bottom: 20px;
+  display: flex;
+  padding: 5px 10px;
   border-radius: 8px;
-  margin: 10px;
-  min-width: 60px;
+  min-width: 120px;
+  margin: 10px 0;
   position: relative;
-  text-align: left;
+  padding-bottom: 17px;
+  word-break: break-all;
+  font-size: 0.9rem;
 `;
 
 const Sender = styled(MessageElement)`
   margin-left: auto;
-  background-color: #006aff;
+  background-color: var(--main-bg-color);
   color: white;
 `;
 
 const Receiver = styled(MessageElement)`
   text-align: left;
-  background-color: #fff5b7;
+  background-color: whitesmoke;
 `;
 
 const TimeStamp = styled.span`
@@ -49,7 +51,7 @@ const TimeStamp = styled.span`
   font-size: 0.6rem;
   position: absolute;
   bottom: 0;
-  text-align: right;
+  /* text-align: right; */
   right: 0;
 `;
 

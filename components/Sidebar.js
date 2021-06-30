@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Avatar, IconButton, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import HttpsIcon from "@material-ui/icons/Https";
 import * as EmailValidator from "email-validator";
 import { auth, db } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import Chat from "./Chat";
 
 export default function Sidebar() {
@@ -42,9 +42,7 @@ export default function Sidebar() {
       <Header>
         <UserAvatar src={user.photoURL} />
         <IconButton>
-          <LogoutButton onClick={() => auth.signOut()}>
-            Sign Out <LogoutIcon />
-          </LogoutButton>
+          <LogoutIcon onClick={() => auth.signOut()} />
         </IconButton>
       </Header>
 
@@ -82,11 +80,12 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #006aff;
+  background-color: var(--main-bg-color);
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 1;
-  padding: 5.5px 10px;
+  padding: 5.2px 10px;
 `;
 
 const UserAvatar = styled(Avatar)`
@@ -95,26 +94,8 @@ const UserAvatar = styled(Avatar)`
   }
 `;
 
-const LogoutButton = styled.button`
-  background-color: #fff5b7;
-  border-radius: 10px;
-  padding: 7px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: bold;
-  :hover {
-    cursor: pointer;
-    color: black;
-    background-color: white;
-  }
-`;
-
-const LogoutIcon = styled(HttpsIcon)`
-  &&& {
-    font-size: 0.95rem;
-    margin-left: 5px;
-  }
+const LogoutIcon = styled(PowerSettingsNewIcon)`
+  color: white;
 `;
 
 const SearchContainer = styled.div`
@@ -122,7 +103,6 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 20px;
-  border-right: 1px solid black;
 `;
 
 const SearchInput = styled.input`
@@ -136,13 +116,12 @@ const SidebarButton = styled(Button)`
   width: 100%;
 
   &&& {
-    background-color: #006aff;
+    background-color: var(--main-bg-color);
     color: white;
     border-top: 1px solid whitesmoke;
     border-bottom: 1px solid whitesmoke;
     :hover {
-      background-color: #fff5b7;
-      color: black;
+      background-color: var(--secondary-bg-color);
     }
   }
 `;

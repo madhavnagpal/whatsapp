@@ -151,8 +151,9 @@ function ChatScreen({ chat, messages }) {
 const Container = styled.div``;
 
 const Header = styled.div`
-  padding: 10px;
-  background-color: #006aff;
+  padding: 5px;
+  font-size: 0.8rem;
+  background-color: var(--main-bg-color);
   position: sticky;
   color: white;
   z-index: 100;
@@ -165,19 +166,13 @@ const Header = styled.div`
 const HeaderInformation = styled.div`
   margin-left: 25px;
   flex: 1;
-
-  > h3 {
-    margin-bottom: 3px;
-  }
-  > p {
-    font-size: 14px;
-    color: gray;
-  }
 `;
 
 const Heading = styled.span`
-  font-size: 1.1rem;
   font-weight: bold;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 3px;
 `;
 
 const StyledHomeIcon = styled(HomeIcon)`
@@ -196,12 +191,11 @@ const EndOfMessage = styled.div`
 const InputContainer = styled.form`
   display: flex;
   align-items: center;
+  background-color: white;
   padding: 5px 10px;
   position: sticky;
   bottom: 0;
-  background-color: pink;
   z-index: 100;
-  background-color: #006aff;
 `;
 
 const Input = styled.input`
@@ -214,9 +208,8 @@ const Input = styled.input`
 `;
 
 const SendButton = styled.button`
-  background-color: #006aff;
   border: none;
-  color: white;
+  color: black;
 `;
 
 const SendMessageIcon = styled(ExitToAppIcon)`
