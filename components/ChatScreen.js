@@ -140,7 +140,9 @@ function ChatScreen({ chat, messages }) {
           Send Message
         </button>
         <IconButton>
-          <SendButton disabled={!input} type="submit" onClick={sendMessage} />
+          <SendButton disabled={!input} type="submit" onClick={sendMessage}>
+            <SendMessageIcon />
+          </SendButton>
         </IconButton>
       </InputContainer>
     </Container>
@@ -211,9 +213,13 @@ const Input = styled.input`
   padding: 15px;
 `;
 
-const SendButton = styled(ExitToAppIcon)`
-  color: #006aff;
+const SendButton = styled.button`
+  background-color: #006aff;
+  border: none;
   color: white;
+`;
+
+const SendMessageIcon = styled(ExitToAppIcon)`
   &&& {
     font-size: 2rem;
   }

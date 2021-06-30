@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Avatar, IconButton, Button } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import HttpsIcon from "@material-ui/icons/Https";
 import * as EmailValidator from "email-validator";
 import { auth, db } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -41,7 +42,9 @@ export default function Sidebar() {
       <Header>
         <UserAvatar src={user.photoURL} />
         <IconButton>
-          <LogoutButton onClick={() => auth.signOut()}>Logout</LogoutButton>
+          <LogoutButton onClick={() => auth.signOut()}>
+            Sign Out <LogoutIcon />
+          </LogoutButton>
         </IconButton>
       </Header>
 
@@ -68,8 +71,6 @@ const Container = styled.div`
   min-width: 300px;
   max-width: 350px;
   overflow-y: scroll;
-  background-color: #006aff;
-
   ::-webkit-scrollbar {
     display: none;
   }
@@ -80,6 +81,7 @@ const Container = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  background-color: #006aff;
   align-items: center;
   position: sticky;
   top: 0;
@@ -94,12 +96,24 @@ const UserAvatar = styled(Avatar)`
 `;
 
 const LogoutButton = styled.button`
-  background-color: #ff449f;
+  background-color: #fff5b7;
   border-radius: 10px;
-  padding: 7px 20px;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
   :hover {
-    background-color: #fff5b7;
     cursor: pointer;
+    color: black;
+    background-color: white;
+  }
+`;
+
+const LogoutIcon = styled(HttpsIcon)`
+  &&& {
+    font-size: 0.95rem;
+    margin-left: 5px;
   }
 `;
 
@@ -122,11 +136,13 @@ const SidebarButton = styled(Button)`
   width: 100%;
 
   &&& {
-    background-color: #ff449f;
+    background-color: #006aff;
+    color: white;
     border-top: 1px solid whitesmoke;
     border-bottom: 1px solid whitesmoke;
     :hover {
       background-color: #fff5b7;
+      color: black;
     }
   }
 `;

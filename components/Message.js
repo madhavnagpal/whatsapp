@@ -24,18 +24,19 @@ const Container = styled.div``;
 
 const MessageElement = styled.div`
   width: fit-content;
-  padding: 10px 20px;
-  padding-bottom: 26px;
+  padding: 2px 20px;
+  padding-bottom: 20px;
   border-radius: 8px;
   margin: 10px;
   min-width: 60px;
   position: relative;
-  text-align: center;
+  text-align: left;
 `;
 
 const Sender = styled(MessageElement)`
   margin-left: auto;
-  background-color: #ff449f;
+  background-color: #006aff;
+  color: white;
 `;
 
 const Receiver = styled(MessageElement)`
@@ -44,9 +45,8 @@ const Receiver = styled(MessageElement)`
 `;
 
 const TimeStamp = styled.span`
-  color: gray;
-  padding: 10px;
-  font-size: 9px;
+  padding: 5px;
+  font-size: 0.6rem;
   position: absolute;
   bottom: 0;
   text-align: right;
