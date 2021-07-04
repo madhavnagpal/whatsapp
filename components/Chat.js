@@ -27,7 +27,7 @@ function Chat({ id, users }) {
         <UserAvatar>{recepientEmail[0]}</UserAvatar>
       )}
 
-      <p>{recepientEmail}</p>
+      <span>{recepientEmail}</span>
     </Container>
   );
 }
@@ -38,8 +38,9 @@ const Container = styled.div`
   cursor: pointer;
   padding: 5px;
   word-break: break-word;
+  font-size: 0.9rem;
   :hover {
-    background-color: whitesmoke;
+    background-color: #444;
   }
 `;
 

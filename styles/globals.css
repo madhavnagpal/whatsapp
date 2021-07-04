@@ -1,14 +1,19 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
-  --main-bg-color: #006aff;
-  --secondary-bg-color: #1b1f3b;
+  --main-bg-dark: #25b373;
+  --main-bg-medium: #1b1b1b;
+  --main-bg-light: #077242;
 }
 
 a {
@@ -16,6 +21,7 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+#MessageContainer {
+  background-image: url("../assets/bg-images/dark.png");
+  background-repeat: repeat;
 }

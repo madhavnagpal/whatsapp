@@ -37,8 +37,8 @@ const MessageElement = styled.div`
 
 const Sender = styled(MessageElement)`
   margin-left: auto;
-  background-color: var(--main-bg-color);
-  color: white;
+  color: var(--main-bg-medium);
+  background-color: white;
 `;
 
 const Receiver = styled(MessageElement)`

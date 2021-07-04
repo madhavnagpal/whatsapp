@@ -125,7 +125,7 @@ function ChatScreen({ chat, messages }) {
         </IconButton>
       </Header>
 
-      <MessageContainer>
+      <MessageContainer id="MessageContainer">
         {showMessages()}
         <EndOfMessage ref={endOfMessageRef} />
       </MessageContainer>
@@ -148,19 +148,20 @@ function ChatScreen({ chat, messages }) {
     </Container>
   );
 }
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: var(--main-bg-medium);
+`;
 
 const Header = styled.div`
+  background-color: var(--main-bg-medium);
+  color: white;
   padding: 5px;
   font-size: 0.8rem;
-  background-color: var(--main-bg-color);
   position: sticky;
-  color: white;
-  z-index: 100;
+  z-index: 101;
   display: flex;
   align-items: center;
   top: 0;
-  border-bottom: 1px solid whitesmoke;
 `;
 
 const HeaderInformation = styled.div`
@@ -191,7 +192,6 @@ const EndOfMessage = styled.div`
 const InputContainer = styled.form`
   display: flex;
   align-items: center;
-  background-color: white;
   padding: 5px 10px;
   position: sticky;
   bottom: 0;
@@ -209,7 +209,8 @@ const Input = styled.input`
 
 const SendButton = styled.button`
   border: none;
-  color: black;
+  color: white;
+  background-color: var(--main-bg-medium);
 `;
 
 const SendMessageIcon = styled(ExitToAppIcon)`

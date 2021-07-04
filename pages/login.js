@@ -9,7 +9,7 @@ function login() {
   }
 
   return (
-    <Container>
+    <Container id="MessageContainer">
       <Head>
         <title>Login</title>
       </Head>
@@ -27,7 +27,6 @@ function login() {
 export default login;
 
 const Container = styled.div`
-  background-image: linear-gradient(to left top, aqua, blue);
   display: grid;
   place-items: center;
   height: 100vh;
@@ -43,19 +42,18 @@ const LoginCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0px 4px 14px -3px blue;
 `;
 
 const LoginButton = styled(Button)`
   width: 300px;
   &&& {
-    background-color: #4285f4;
+    background-color: var(--main-bg-dark);
     color: white;
     margin-top: 20px;
   }
   :hover {
     &&& {
-      background-color: blue;
+      background-color: var(--main-bg-light);
     }
   }
 `;

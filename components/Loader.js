@@ -8,7 +8,7 @@ function Loader() {
         placeItems: "center",
         height: "100vh",
         width: "100vw",
-        backgroundImage: "linear-gradient(to left top, aqua, blue)",
+        background: "black",
       }}
     >
       <div>

@@ -46,11 +46,10 @@ export default function Sidebar() {
         </IconButton>
       </Header>
 
-      <SearchContainer>
+      {/* <SearchContainer>
         <SearchIcon />
         <SearchInput placeholder="Search in chats" />
-      </SearchContainer>
-
+      </SearchContainer> */}
       <SidebarButton onClick={createChatHandler}>
         Start a new chat
       </SidebarButton>
@@ -64,23 +63,17 @@ export default function Sidebar() {
 
 const Container = styled.div`
   flex: 0.45;
-  border-radius: 1px solid whitesmoke;
-  height: 100vh;
+  background-color: var(--main-bg-medium);
+  color: white;
   min-width: 300px;
   max-width: 350px;
-  overflow-y: scroll;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  height: 100vh;
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #006aff;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-medium);
   align-items: center;
   position: sticky;
   top: 0;
@@ -99,10 +92,13 @@ const LogoutIcon = styled(PowerSettingsNewIcon)`
 `;
 
 const SearchContainer = styled.div`
-  background-color: white;
+  background-color: whitesmoke;
   display: flex;
   align-items: center;
   padding: 20px;
+  > input {
+    background-color: whitesmoke;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -116,12 +112,10 @@ const SidebarButton = styled(Button)`
   width: 100%;
 
   &&& {
-    background-color: var(--main-bg-color);
+    background-color: var(--main-bg-dark);
     color: white;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
     :hover {
-      background-color: var(--secondary-bg-color);
+      background-color: var(--main-bg-light);
     }
   }
 `;
