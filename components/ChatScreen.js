@@ -182,7 +182,20 @@ const StyledHomeIcon = styled(HomeIcon)`
 
 const MessageContainer = styled.div`
   padding: 30px;
-  min-height: 90vh;
+  height: 90vh;
+  overflow-y: auto;
+  padding-top: 100px;
+  ::-webkit-scrollbar {
+    width: 15px;
+    background-color: white;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #555;
+  }
 `;
 
 const EndOfMessage = styled.div`
@@ -191,6 +204,7 @@ const EndOfMessage = styled.div`
 
 const InputContainer = styled.form`
   display: flex;
+  background-color: var(--main-bg-medium);
   align-items: center;
   padding: 5px 10px;
   position: sticky;

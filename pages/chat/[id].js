@@ -13,7 +13,9 @@ function Chat({ chat, messages }) {
       <Head>
         <title>Chat with {getReceipientEmail(chat.users, user)}</title>
       </Head>
-      <Sidebar />
+      <SidebarWrapper>
+        <Sidebar />
+      </SidebarWrapper>
       <ChatContainer>
         <ChatScreen chat={chat} messages={messages} />
       </ChatContainer>
@@ -25,15 +27,27 @@ const Container = styled.div`
   display: flex;
 `;
 
-const ChatContainer = styled.div`
-  flex: 1px;
-  overflow: scroll;
+const SidebarWrapper = styled.div`
+  flex: 0.45;
+  min-width: 300px;
   height: 100vh;
+  @media (max-width: 650px) {
+    flex: 0;
+    display: none;
+  }
+`;
+
+const ChatContainer = styled.div`
+  flex: 1;
+  height: 100vh;
+  overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+  @media (max-width: 650px) {
+  }
 `;
 
 export default Chat;

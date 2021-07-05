@@ -36,16 +36,24 @@ const Container = styled.div`
 const LoginCard = styled.div`
   padding-top: 26px;
   padding-bottom: 66px;
-  width: 420px;
+  max-width: 420px;
+  width: 80%;
+  margin: 0 auto;
   background-color: white;
   border-radius: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h1 {
+    text-align: center;
+  }
 `;
 
 const LoginButton = styled(Button)`
-  width: 300px;
+  max-width: 300px;
+  width: 80%;
+  margin: 0 auto;
   &&& {
     background-color: var(--main-bg-dark);
     color: white;

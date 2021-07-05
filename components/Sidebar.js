@@ -62,12 +62,22 @@ export default function Sidebar() {
 }
 
 const Container = styled.div`
-  flex: 0.45;
   background-color: var(--main-bg-medium);
   color: white;
   min-width: 300px;
-  max-width: 350px;
   height: 100vh;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    width: 15px;
+    background-color: white;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: white;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #555;
+  }
 `;
 
 const Header = styled.div`
