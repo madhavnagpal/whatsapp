@@ -24,7 +24,6 @@ export default function Home() {
 
 const Container = styled.div`
   display: flex;
-  background-color: pink;
 `;
 
 const SidebarWrapper = styled.div`

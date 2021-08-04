@@ -52,12 +52,9 @@ const ChatContainer = styled.div`
 
 export default Chat;
 
-// server side rendering before even page loads this function runs on
-// server and sends to the props of the component
 export async function getServerSideProps(context) {
-  const ref = db.collection("chats").doc(context.query.id);
+  const ref = db.collection("chats").doc(context.query.chatId);
 
-  // Prep the messages on the server
   const messagesRes = await ref
     .collection("messages")
     .orderBy("timestamp", "asc")
@@ -73,7 +70,6 @@ export async function getServerSideProps(context) {
       timestamp: message.timestamp.toDate().getTime(),
     }));
 
-  // Prep the chats
   const chatRes = await ref.get();
   const chat = {
     id: chatRes.id,

@@ -13,6 +13,7 @@ body {
 :root {
   --main-bg-dark: #25b373;
   --main-bg-medium: #1b1b1b;
+  --main-bg-hover: #5c5c5c;
   --main-bg-light: #077242;
 }
 

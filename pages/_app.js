@@ -5,6 +5,7 @@ import Login from "./login";
 import Loader from "../components/Loader";
 import { useEffect } from "react";
 import firebase from "firebase";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 function MyApp({ Component, pageProps }) {
   const [user, loading] = useAuthState(auth);
@@ -24,7 +25,11 @@ function MyApp({ Component, pageProps }) {
 
   if (loading) return <Loader />;
   if (!user) return <Login />;
-  return <Component {...pageProps} />;
+  return (
+    <ErrorBoundary>
+      <Component {...pageProps} />
+    </ErrorBoundary>
+  );
 }
 
 export default MyApp;
