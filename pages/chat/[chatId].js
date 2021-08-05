@@ -5,9 +5,13 @@ import ChatScreen from "../../components/ChatScreen";
 import { auth, db } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import getReceipientEmail from "../../utils/getReceipientEmail";
+import { useRouter } from "next/router";
 
-function Chat({ chat, messages }) {
+function Chat({ chat }) {
   const [user] = useAuthState(auth);
+  const router = useRouter();
+  console.log(router, "router");
+
   return (
     <Container>
       <Head>
@@ -17,7 +21,7 @@ function Chat({ chat, messages }) {
         <Sidebar />
       </SidebarWrapper>
       <ChatContainer>
-        <ChatScreen chat={chat} messages={messages} />
+        <ChatScreen chat={chat} />
       </ChatContainer>
     </Container>
   );
@@ -55,20 +59,20 @@ export default Chat;
 export async function getServerSideProps(context) {
   const ref = db.collection("chats").doc(context.query.chatId);
 
-  const messagesRes = await ref
-    .collection("messages")
-    .orderBy("timestamp", "asc")
-    .get();
+  // const messagesRes = await ref
+  //   .collection("messages")
+  //   .orderBy("timestamp", "asc")
+  //   .get();
 
-  const messages = messagesRes.docs
-    .map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    }))
-    .map((message) => ({
-      ...message,
-      timestamp: message.timestamp.toDate().getTime(),
-    }));
+  // const messages = messagesRes.docs
+  //   .map((doc) => ({
+  //     id: doc.id,
+  //     ...doc.data(),
+  //   }))
+  //   .map((message) => ({
+  //     ...message,
+  //     timestamp: message.timestamp.toDate().getTime(),
+  //   }));
 
   const chatRes = await ref.get();
   const chat = {
@@ -77,7 +81,7 @@ export async function getServerSideProps(context) {
   };
   return {
     props: {
-      messages: JSON.stringify(messages),
+      // messages: JSON.stringify(messages),
       chat,
     },
   };
